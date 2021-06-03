@@ -1,0 +1,30 @@
+{
+  "name": "@autsys/package-version",
+  "version": "0.0.1",
+  "description": "Check the published version of a package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build index.js --license licenses.txt"
+  },
+  "keywords": [
+    "github",
+    "github package",
+    "github actions",
+    "package automation",
+    "npm package"
+  ],
+  "author": "jheyer159",
+  "license": "ISC",
+  "engines": {
+    "node": "12"
+  },
+  "dependencies": {
+    "@actions/core": "^1.3.0",
+    "@actions/github": "^5.0.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.28.6"
+  }
+}

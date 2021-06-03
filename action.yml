@@ -1,0 +1,18 @@
+name: "Package Version Check"
+description: "Get the latest version of the published package"
+inputs:
+  accessToken:
+    description: github access token
+    required: true
+  name: # id of input
+    description: "Name of the package"
+    required: true
+  owner:
+    description: owner of repo
+    required: true
+outputs:
+  version: # id of output
+    description: "The version of the package"
+runs:
+  using: "node12"
+  main: "dist/index.js"
