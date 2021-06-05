@@ -4,8 +4,8 @@ inputs:
   accessToken:
     description: github access token
     required: true
-  name: # id of input
-    description: "Name of the package"
+  name:
+    description: "Name of the repository"
     required: true
   owner:
     description: owner of repo
