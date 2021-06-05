@@ -33,12 +33,12 @@ try {
   const name = core.getInput("name");
   const repo = core.getInput("repo");
 
-  console.log("Inputs: ", { owner, name, repo });
   const variables = {
     owner,
     repo,
     packageNames: [name],
   };
+  console.log("Inputs: ", variables);
   fetch("https://api.github.com/graphql", {
     method: "POST",
     body: JSON.stringify({ query, variables }),
