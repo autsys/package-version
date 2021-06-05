@@ -31,11 +31,9 @@ try {
   const accessToken = core.getInput("accessToken");
   const owner = core.getInput("owner");
   const name = core.getInput("name");
+  const repo = core.getInput("repo");
   // const repoName = core.getInput("name");
-  console.log(`github context: ${github.context}`);
-  const repo = github.context.repo;
-
-  console.log(`Checking package ${name}!`);
+  console.log("Inputs: ", { owner, name, repo });
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(`The event payload: ${payload}`);
@@ -52,7 +50,13 @@ try {
     },
   })
     .then((res) => res.text())
-    .then((body) => console.log(body))
+    .then((body) => {
+      console.log(body);
+      core.setOutput(
+        "version",
+        body.data.repository.packages.nodes.version[0].version
+      );
+    })
     .catch((error) => core.setFailed(error));
 } catch (error) {
   core.setFailed(error.message);
