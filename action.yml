@@ -5,7 +5,10 @@ inputs:
     description: github access token
     required: true
   name:
-    description: "Name of the repository"
+    description: Name of the package
+    required: true
+  repo:
+    description: Name of the repository
     required: true
   owner:
     description: owner of repo

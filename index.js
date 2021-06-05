@@ -32,11 +32,8 @@ try {
   const owner = core.getInput("owner");
   const name = core.getInput("name");
   const repo = core.getInput("repo");
-  // const repoName = core.getInput("name");
+
   console.log("Inputs: ", { owner, name, repo });
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
   const variables = {
     owner,
     repo,
