@@ -6175,13 +6175,14 @@ try {
   const owner = core.getInput("owner");
   const name = core.getInput("name");
   const repo = core.getInput("repo");
+  const debug = core.getInput("debug");
 
   const variables = {
     owner,
     repo,
     packageNames: [name],
   };
-  console.log("Inputs: ", variables);
+  debug && console.log("Inputs: ", variables);
   fetch("https://api.github.com/graphql", {
     method: "POST",
     body: JSON.stringify({ query, variables }),
@@ -6191,11 +6192,9 @@ try {
   })
     .then((res) => res.text())
     .then((body) => {
-      console.log(body);
-      core.setOutput(
-        "version",
-        body.data.repository.packages.nodes.version[0].version
-      );
+      debug && console.log(body);
+      const version = body.data.repository.packages.nodes[0].versions.nodes[0];
+      core.setOutput("version", version);
     })
     .catch((error) => core.setFailed(error));
 } catch (error) {

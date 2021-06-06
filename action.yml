@@ -4,6 +4,9 @@ inputs:
   accessToken:
     description: github access token
     required: true
+  debug:
+    description: show debug logs
+    required: false
   name:
     description: Name of the package
     required: true
