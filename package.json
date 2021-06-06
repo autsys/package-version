@@ -1,6 +1,6 @@
 {
   "name": "@autsys/package-version",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "description": "Check the published version of a package",
   "main": "index.js",
   "scripts": {
