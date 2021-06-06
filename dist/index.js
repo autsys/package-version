@@ -2282,7 +2282,8 @@ try {
     .then((body) => {
       debug && console.log(body);
       const json = JSON.parse(body);
-      const version = json.data.repository.packages.nodes[0].versions.nodes[0];
+      const version =
+        json.data.repository.packages.nodes[0].versions.nodes[0].version;
       core.setOutput("version", version);
     })
     .catch((error) => core.setFailed(error));

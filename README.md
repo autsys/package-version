@@ -1,6 +1,6 @@
-# Hello world javascript action
+# Query Published Package Version
 
-This action gets the latest version of a package published on the Github Package Repository. It uses the Github GraphQL Api to perform a query that pulls the packages from a given repository using the `name`, `owner`, `repo` fields then returns the latest version to `version`.
+This action gets the latest version of a package published on the Github Package Repository. It uses the Github GraphQL API to perform a query that pulls the packages from a given repository using the `name`, `owner`, `repo` fields then returns the latest version to `version`.
 
 ## Inputs
 
@@ -30,7 +30,7 @@ The latest version of the package.
 
 ```yaml
 name: Check latest published package version
-uses: actions/autsys/package-version@v0.1.0
+uses: actions/autsys/package-version@v1.0.0
 with:
   id: check
   accessToken: ${{ secrets.GITHUB_TOKEN }}
