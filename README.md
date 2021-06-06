@@ -1,6 +1,6 @@
 # Hello world javascript action
 
-This action gets the latest version of a package published on the Github Package Repository
+This action gets the latest version of a package published on the Github Package Repository. It uses the Github GraphQL Api to perform a query that pulls the packages from a given repository using the `name`, `owner`, `repo` fields then returns the latest version to `version`.
 
 ## Inputs
 
@@ -24,7 +24,7 @@ This action gets the latest version of a package published on the Github Package
 
 ### `version`
 
-The version of the package.
+The latest version of the package.
 
 ## Example usage
 
@@ -34,7 +34,7 @@ uses: actions/autsys/package-version@v0.1.0
 with:
   id: check
   accessToken: ${{ secrets.GITHUB_TOKEN }}
+  name: package-name
   owner: autsys
   repo: mono
-  name: package-name
 ```

@@ -1,17 +1,16 @@
 const core = require("@actions/core");
-const github = require("@actions/github");
 const fetch = require("node-fetch");
 
 const query = `
 query getPackage($owner: String!, $repo: String! $packageNames: [String!]) {
   repository(owner: $owner, name: $repo) {
     id
-    packages(first: 10, names: $packageNames) {
+    packages(first: 1, names: $packageNames) {
       nodes {
         id
         name
         packageType
-        versions(first: 10) {
+        versions(first: 1) {
           nodes {
             id
             version
@@ -50,7 +49,8 @@ try {
     .then((res) => res.text())
     .then((body) => {
       debug && console.log(body);
-      const version = body.data.repository.packages.nodes[0].versions.nodes[0];
+      const json = JSON.parse(body);
+      const version = json.data.repository.packages.nodes[0].versions.nodes[0];
       core.setOutput("version", version);
     })
     .catch((error) => core.setFailed(error));
