@@ -16,6 +16,10 @@ This action gets the latest version of a package published on the Github Package
 
 **Required** Owner of repo to check
 
+### `repo`
+
+**Required** Name of repo to check
+
 ## Outputs
 
 ### `version`
@@ -24,6 +28,13 @@ The version of the package.
 
 ## Example usage
 
-uses: actions/@autsys/package-version@v0.0.1
+```yaml
+name: Check latest published package version
+uses: actions/autsys/package-version@v0.1.0
 with:
-name: '@autsys/package'
+  id: check
+  accessToken: ${{ secrets.GITHUB_TOKEN }}
+  owner: autsys
+  repo: mono
+  name: package-name
+```
