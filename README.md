@@ -2,6 +2,8 @@
 
 This action gets the latest version of a package published on the Github Package Repository. It uses the Github GraphQL API to perform a query that pulls the packages from a given repository using the `name`, `owner`, `repo` fields then returns the latest version to `version`.
 
+If no package is found, then `0` is returned.
+
 ## Inputs
 
 ### `accessToken`

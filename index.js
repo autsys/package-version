@@ -1,5 +1,6 @@
 const core = require("@actions/core");
 const fetch = require("node-fetch");
+const get = require("lodash.get");
 
 const query = `
 query getPackage($owner: String!, $repo: String! $packageNames: [String!]) {
@@ -50,8 +51,11 @@ try {
     .then((body) => {
       debug && console.log(body);
       const json = JSON.parse(body);
-      const version =
-        json.data.repository.packages.nodes[0].versions.nodes[0].version;
+      const version = get(
+        json.data.repository.packages.nodes[0].versions.nodes[0].version,
+        0
+      );
+
       core.setOutput("version", version);
     })
     .catch((error) => core.setFailed(error));
