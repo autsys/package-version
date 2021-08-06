@@ -2292,7 +2292,7 @@ try {
         json.data.repository.packages.nodes[0].versions.nodes[0] &&
         json.data.repository.packages.nodes[0].versions.nodes[0].version;
 
-      core.setOutput("version", version || 0);
+      core.setOutput("version", version || "0.0.0");
     })
     .catch((error) => core.setFailed(error));
 } catch (error) {

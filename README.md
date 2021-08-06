@@ -32,7 +32,7 @@ The latest version of the package.
 
 ```yaml
 name: Check latest published package version
-uses: actions/autsys/package-version@v0.0.11
+uses: actions/autsys/package-version@v0.0.12
 with:
   id: check
   accessToken: ${{ secrets.GITHUB_TOKEN }}
