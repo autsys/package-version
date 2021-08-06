@@ -2,6 +2,8 @@
 
 This action gets the latest version of a package published on the Github Package Repository. It uses the Github GraphQL API to perform a query that pulls the packages from a given repository using the `name`, `owner`, `repo` fields then returns the latest version to `version`.
 
+If no package is found, then `0` is returned.
+
 ## Inputs
 
 ### `accessToken`
@@ -30,7 +32,7 @@ The latest version of the package.
 
 ```yaml
 name: Check latest published package version
-uses: actions/autsys/package-version@v1.0.0
+uses: actions/autsys/package-version@v0.0.10
 with:
   id: check
   accessToken: ${{ secrets.GITHUB_TOKEN }}
